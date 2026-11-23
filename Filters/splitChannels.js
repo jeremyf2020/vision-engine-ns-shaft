@@ -17,7 +17,7 @@ function splitChannels(imageData) {
             let r = imageData.pixels[index + 0];
             let g = imageData.pixels[index + 1];
             let b = imageData.pixels[index + 2];
-            let a = imageData.pixels[index + 3]; // Alpha channel
+            let a = imageData.pixels[index + 3];
 
             // Assign only the respective color channel, set others to 0
             redChannel.pixels[index + 0] = r;

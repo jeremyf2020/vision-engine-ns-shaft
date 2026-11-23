@@ -1,3 +1,5 @@
+// trying more advanced blurring technique using convolution matrix
+// however, the performance is not good, iteration more times would get better blurred reuslt
 let matrix = [
     [1 / 256, 4 / 256, 6 / 256, 4 / 256, 1 / 256],
     [4 / 256, 16 / 256, 24 / 256, 16 / 256, 4 / 256],
@@ -6,10 +8,11 @@ let matrix = [
     [1 / 256, 4 / 256, 6 / 256, 4 / 256, 1 / 256]
 ];
 
-function convertToBlurred(img, iterations = 2) {
-    let imgOut = img.get(); // Clone the image to prevent modifying original
+function convertToBlurred(img, iterations = 4) {
+    // inspired by the idea from p5js's orginal blur function
+    // doing multiple iterations is straightforward way to get a better blurred image
+    let imgOut = img.get();
     let matrixSize = matrix.length;
-    let offset = Math.floor(matrixSize / 2);
 
     for (let i = 0; i < iterations; i++) {
         let tempImg = createImage(imgOut.width, imgOut.height);
@@ -35,13 +38,12 @@ function convertToBlurred(img, iterations = 2) {
     return imgOut;
 }
 
-/////////////////////////////////////////////////////////////////////////
-
+// convolution function to apply the matrix to the image
 function convolution(x, y, matrix, matrixSize, img) {
     let totalRed = 0.0;
     let totalGreen = 0.0;
     let totalBlue = 0.0;
-    let sumWeight = 0.0; // Normalization factor
+    let sumWeight = 0.0;
     let offset = Math.floor(matrixSize / 2);
 
     for (let i = 0; i < matrixSize; i++) {

@@ -8,23 +8,48 @@
             margin: 0;
         }
     </style>
+
     <script src="./libraries/p5.min.js"></script>
     <script src="./libraries/p5.dom.js"></script>
     <script src="./libraries/objectdetect.js"></script>
     <script src="./libraries/objectdetect.frontalface.js"></script>
+
+    <!-- Draw Helpers -->
+    <script src="./layout/Helper/neonFactory.js"></script>
+
+    <!-- Filters -->
+    <script src="./Filters/extractRGB.js"></script>
+    <script src="./Filters/grayScale.js"></script>
+    <script src="./Filters/brightness.js"></script>
+    <script src="./Filters/splitChannels.js"></script>
+    <script src="./Filters/threshold.js"></script>
+    <script src="./Filters/YCBCr.js"></script>
+    <script src="./Filters/HSV.js"></script>
+    <script src="./Filters/blur.js"></script>
+    <script src="./Filters/pixel.js"></script>
+
+    <!-- Game classes -->
+    <script src="./Game/Game.js"></script>
+    <script src="./Game/Platform.js"></script>
+    <script src="./Game/Player.js"></script>
+    <script src="./Game/WebcamGame.js"></script>
+    <script src="./Game/DisplayBoard.js"></script>
+
+    <!-- Controllers -->
+    <script src="./Controllers/InputController.js"></script>
+    <script src="./Controllers/Buttons/SnapshotBtn.js"></script>
+    <script src="./Controllers/Buttons/NeonSwitch.js"></script>
+
+    <!-- UI Compoents -->
+    <script src="./layout/Components/CyberText.js"></script>
+    <script src="./layout/Components/Skeleton.js"></script>
+    <script src="./layout/Components/Webcam.js"></script>
+    <!-- UI classes -->
+    <script src="./layout/UI.js"></script>
+    <script src="./layout/Processor.js"></script>
+
+    <!-- Webcam, shared to both mode -->
     <script src="main.js"></script>
-    <script src="./Components/Skeleton.js"></script>
-    <script src="./Components/Painter.js"></script>
-    <script src="./Components/Webcam.js"></script>
-    <script src="./Engine/grayScale.js"></script>
-    <script src="./Engine/splitChannels.js"></script>
-    <script src="./Engine/threshold.js"></script>
-    <script src="./Engine/HSVFilter.js"></script>
-    <script src="./Engine/LabFilter.js"></script>
-    <script src="./Engine/YCBCrFilter.js"></script>
-    <script src="./Engine/BlurFilter.js"></script>
-    <script src="./Engine/pixelFilter.js"></script>
-    <script src="./Controller/InputController.js"></script>
 </head>
 
 </html>

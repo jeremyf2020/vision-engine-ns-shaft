@@ -1,3 +1,4 @@
+// apply the code from the lecture
 function convertToThreshold(imageData, threshold) {
     let convertedImg = createImage(imageData.width, imageData.height);
     convertedImg.loadPixels();
@@ -12,7 +13,6 @@ function convertToThreshold(imageData, threshold) {
             const g = imageData.pixels[index + 1];
             const b = imageData.pixels[index + 2];
 
-            // const bright = (r + g + b) / 3; 
             const bright = 0.3 * r + 0.59 * g + 0.11 * b; // LUMA ratios
 
             if (bright > threshold) {

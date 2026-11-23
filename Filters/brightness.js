@@ -1,4 +1,5 @@
-function convertToGrayScale(imageData) {
+// increase the brightness of the image by 20%
+function increaseBrightness(imageData) {
     let convertedImg = createImage(imageData.width, imageData.height);
     convertedImg.loadPixels();
     imageData.loadPixels();
@@ -12,10 +13,17 @@ function convertToGrayScale(imageData) {
             const g = imageData.pixels[index + 1];
             const b = imageData.pixels[index + 2];
 
-            const gray = r * 0.299 + g * 0.587 + b * 0.114; // LUMA ratios 
-            const brightGrey = increaseBrightness(gray);
+            // 1.2 is 20% more
+            //Math.min is used to make sure the value does not exceed 255
+            const brightRed = Math.min(255, r * 1.2);
+            const brightGreen = Math.min(255, r * 1.2);
+            const brightBlue = Math.min(255, r * 1.2);
 
-            convertedImg.pixels[index + 0] = convertedImg.pixels[index + 1] = convertedImg.pixels[index + 2] = brightGrey;
+            convertedImg.pixels[index + 0] = brightRed;
+            convertedImg.pixels[index + 1] = brightGreen;
+            convertedImg.pixels[index + 2] = brightBlue;
+            convertedImg.pixels[index + 3] = 255;
+
             convertedImg.pixels[index + 3] = 255;
         }
     }
@@ -23,7 +31,3 @@ function convertToGrayScale(imageData) {
     return convertedImg;
 }
 
-function increaseBrightness(grayValue) {
-    let brightGrey = grayValue * 1.2; // Increase brightness by 20%
-    return Math.min(255, brightGrey); // Clamp value to a max of 255
-}
